@@ -1,0 +1,2 @@
+gametes/generatedatasets:
+  - "modules/nf-core/gametes/generatedatasets/**"
