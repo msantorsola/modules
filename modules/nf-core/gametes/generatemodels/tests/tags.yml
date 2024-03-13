@@ -1,0 +1,2 @@
+gametes/generatemodels:
+  - "modules/nf-core/gametes/generatemodels/**"

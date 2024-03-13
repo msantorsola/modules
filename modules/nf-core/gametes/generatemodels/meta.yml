@@ -1,0 +1,51 @@
+name: "gametes_generatemodels"
+description: Generation of complex biallelic single nucleotide polymorphism disease models for simulation studies
+keywords:
+  - epistasis
+  - heritability
+  - SNP
+
+tools:
+  - "gametes":
+      description: "Tool for the generation of complex single SNP models"
+      homepage: "https://sourceforge.net/projects/gametes/"
+      documentation: "https://sourceforge.net/projects/gametes/files/GAMETES_v2.1_Users_Guide.pdf"
+      doi: "10.1186/1756-0381-5-16"
+      licence: ["GPL v2"]
+
+input:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'model1']`
+
+  - heritability:
+      type: float
+      description: Heritability value ranging from 0 to 1
+
+output:
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: "versions.yml"
+
+  - edm_scores:
+      type: file
+      description: File of EDM scores
+      pattern: "*.{EDM_Scores.txt}"
+
+  - oddsratio_scores:
+      type: file
+      description: File of Odds Ratio scores
+      pattern: "*.{_OddsRatio_Scores.txt}"
+
+  - models:
+      type: file
+      description: File of the generated epistasis model
+      pattern: "*.{_Models.txt}"
+
+authors:
+  - "@msantorsola"
+maintainers:
+  - "@msantorsola"
