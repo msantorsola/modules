@@ -11,14 +11,14 @@ nextflow_process {
     tag "gametes"
     tag "gametes/generatemodels"
 
-    test("model - options") {
+    test("model") {
 
 
         when {
             process {
                 """
                 input[0] = [
-                    [ id:'test' ], '0.2','TEST_OUT'
+                    [ id:'test' ], '0.2'
                     ]
                 """
             }
@@ -43,7 +43,7 @@ nextflow_process {
             process {
                 """
                 input[0] = [
-                    [ id:'test' ], '0.2','TEST_OUT'
+                    [ id:'test' ], '0.2'
                     ]
                 """
             }

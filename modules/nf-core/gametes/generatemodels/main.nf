@@ -8,7 +8,7 @@ process GAMETES_GENERATEMODELS {
         'biocontainers/gametes:2.1--py310h7cba7a3_0' }"
 
     input:
-    tuple val(meta), val heritability
+    tuple val(meta), val(heritability)
 
     output:
     tuple val(meta), path("_EDM_Scores.txt"), emit: edm_scores
