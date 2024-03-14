@@ -11,8 +11,8 @@ process GAMETES_GENERATEMODELS {
     tuple val(meta), val(heritability)
 
     output:
-    tuple val(meta), path("_EDM_Scores.txt"), emit: edm_scores
-    tuple val(meta), path("*_OddsRatio_Scores.txt"), emit: oddsratio_scores
+    tuple val(meta), path("_EDM_Scores.txt"), emit: edm_scores, optional: true
+    tuple val(meta), path("*_OddsRatio_Scores.txt"), emit: oddsratio_scores, optional: true
     tuple val(meta), path("*_Models.txt"), emit: models
     path "versions.yml"           , emit: versions
 

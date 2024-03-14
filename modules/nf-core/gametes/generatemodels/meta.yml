@@ -34,11 +34,13 @@ output:
       type: file
       description: File of EDM scores
       pattern: "*.{EDM_Scores.txt}"
+      optional: true
 
   - oddsratio_scores:
       type: file
       description: File of Odds Ratio scores
       pattern: "*.{_OddsRatio_Scores.txt}"
+      optional: true
 
   - models:
       type: file
