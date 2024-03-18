@@ -8,6 +8,7 @@ nextflow_process {
     tag "modules_nfcore"
     tag "gametes"
     tag "gametes/generatemodels"
+    config "./nextflow.config"
 
     test("model") {
 
