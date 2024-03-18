@@ -27,7 +27,6 @@ process GAMETES_GENERATEMODELS {
     """
     gametes \\
         -M  "\\
-        -h \\
         -o $prefix \\
         $args"
 
