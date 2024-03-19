@@ -12,11 +12,7 @@ process GAMETES_GENERATEDATASETS {
     
     input:
     tuple val(meta), path(model)
-    val dataset
-    val total_attribute_count
-    val case_count
-    val control_count
-    val replicate_count   
+    val(modelInputFile)    
 
     output:
     tuple val(meta), path("${prefix}") , emit: results
@@ -28,22 +24,14 @@ process GAMETES_GENERATEDATASETS {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def seed = task.ext.seed ?: "${meta.seed}"
     def VERSION = '2.1' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
 
     """
     gametes \\
-    	--randomSeed $seed \\
-	--modelInputFile $model \\
-	--dataset \\
-        "--alleleFrequencyMin $allele_frequency_min \\
- 	--alleleFrequencyMax $allele_frequency_max \\
-        --totalAttributeCount $total_attribute_count \\
-        --caseCount $case_count \\ 
-        --controlCount $control_count \\
-	--replicateCount $replicate_count \\
-	-o $prefix"
-
+        --modelInputFile $model \\
+        --dataset \\
+        "$args \\
+        -o $prefix"
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
