@@ -1,4 +1,3 @@
-
 process GAMETES_GENERATEDATASETS {
     tag "$meta.id"
     label 'process_medium'
@@ -12,7 +11,8 @@ process GAMETES_GENERATEDATASETS {
     
     input:
     tuple val(meta), path(model)
-    val(modelInputFile)    
+    val(modelInputFile)
+    path(model)    
 
     output:
     tuple val(meta), path("${prefix}") , emit: results

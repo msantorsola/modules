@@ -1,66 +1,36 @@
----
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "gametes_generatedatasets"
 
 description: Complex SNP model simulations with gametes
 keywords:
-  - model
-  - SNP
   - epistasis
+  - datasets
+  - SNP
 tools:
   - "gametes":
       description: "Tool for the generation of complex single SNP models"
       homepage: "https://sourceforge.net/projects/gametes/"
       documentation: "https://sourceforge.net/projects/gametes/files/GAMETES_v2.1_Users_Guide.pdf"
-      tool_dev_url: "None"
       doi: "10.1186/1756-0381-5-16"
-      licence: ['GPL v2']
+      licence: ["GPL v2"]
 
 input:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
-      e.g. `[ id:'dataset1', single_end:false, model:'model_x', seed:'123']`
-  
+        e.g. `[ id:'model1']`
+
   - model:
       type: file
-      description: text file reporting model parameters
+      description: Text file reporting model parameters
       pattern: "*.{.txt}"
 
-
-  - dataset:
-      type: string
-      description: Override default parameters to generate a simulated datasets 
-
-  - total_attribute_count:
-      type: integer
-      description: Total number of SNPs in the simulated dataset
-  
-  - case_count:
-      type: integer
-      description: Number of simulated samples within case group
-
-  - val control_count:
-      type: integer
-      description: Number of simulates samples within control group
-  
-  - val replicate_count:
-      type: integer
-      description: Number of replicates for the simulated dataset
-
 output:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
-  
   - versions:
       type: file
       description: File containing software versions
       pattern: "versions.yml"
-  
+
   - results:
       type: directory
       description: Folder containing the quantification results for a specific sample
