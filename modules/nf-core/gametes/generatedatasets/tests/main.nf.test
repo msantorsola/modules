@@ -17,7 +17,7 @@ nextflow_process {
             process {
                 """
                 input[0] = [[ id:'test'],
-                file("https://raw.githubusercontent.com/msantorsola/random_tests/main/model_h0.2_p0.3_a0.3_f0.4_Models.txt")]
+                file("https://github.com/msantorsola/random_tests/main/model_h0.2_p0.3_a0.3_f0.4_quantile_1_Models.txt")]
                 """
             }
         }
