@@ -14,7 +14,7 @@ process GAMETES_GENERATEDATASETS {
 
 
     output:
-    tuple val(meta), path($prefix) , emit: results
+    tuple val(meta), path("${prefix}") , emit: results
     path "versions.yml"           , emit: versions
 
     when:
@@ -39,23 +39,4 @@ process GAMETES_GENERATEDATASETS {
         gametes: $VERSION
     END_VERSIONS
     """
-
-    stub:
-    """
-    def prefix = task.ext.prefix ?: "${meta.id}"
-    def VERSION = '2.1' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
-
-
-    touch ${prefix}_EDM-1
-    touch ${prefix}_EDM-1/TEST_outputs_EDM-1_1.txt
-
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-       gametes: $VERSION
-    END_VERSIONS
-    """
-
-
-
 }
