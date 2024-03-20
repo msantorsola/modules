@@ -33,7 +33,7 @@ output:
 
   - results:
       type: directory
-      description: Folder containing the quantification results for a specific sample
+      description: Folder containing the simulated datasets
       pattern: "${prefix}"
 
 authors:

@@ -32,7 +32,20 @@ process GAMETES_GENERATEDATASETS {
         $args \\
         --dataset \\
         "$args2 \\
-        -o $prefix"
+        -o ${prefix}"
+
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        gametes: $VERSION
+    END_VERSIONS
+    """
+    stub:
+    def args = task.ext.args ?: ''
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    mkdir ${prefix}_EDM-1
+    touch ${prefix}_EDM-1/${prefix}_EDM-1_1.txt
+
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -40,3 +53,4 @@ process GAMETES_GENERATEDATASETS {
     END_VERSIONS
     """
 }
+
