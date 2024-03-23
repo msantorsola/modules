@@ -1,6 +1,6 @@
 process GAMETES_GENERATEDATASETS {
     tag "$meta.id"
-    label 'process_medium'
+    label 'process_low'
 
 
     conda "${moduleDir}/environment.yml"
@@ -14,8 +14,9 @@ process GAMETES_GENERATEDATASETS {
 
 
     output:
-    tuple val(meta), path("${prefix}") , emit: results
-    path "versions.yml"           , emit: versions
+    tuple val(meta), path("${prefix}_EDM-*")        , emit: edmresults , optional:true
+    tuple val(meta2), path("${prefix}_OddsRatio_*") , emit: oddsresults, optional:true
+    path "versions.yml"                             , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -33,19 +34,6 @@ process GAMETES_GENERATEDATASETS {
         --dataset \\
         "$args2 \\
         -o ${prefix}"
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        gametes: $VERSION
-    END_VERSIONS
-    """
-    stub:
-    def args = task.ext.args ?: ''
-    prefix = task.ext.prefix ?: "${meta.id}"
-    """
-    mkdir ${prefix}_EDM-1
-    touch ${prefix}_EDM-1/${prefix}_EDM-1_1.txt
-
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
