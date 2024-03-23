@@ -39,7 +39,7 @@ output:
   - oddsresults:
       type: directory
       description: Folder containing the simulated datasets with Odds Ratio scores
-      pattern: "${prefix}_OddsRatio_*"
+      pattern: "${prefix}_OddsRatio-*"
 
 authors:
   - "@msantorsola"

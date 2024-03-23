@@ -14,8 +14,7 @@ process GAMETES_GENERATEDATASETS {
 
 
     output:
-    tuple val(meta), path("${prefix}_EDM-*")        , emit: edmresults , optional:true
-    tuple val(meta), path("${prefix}_OddsRatio_*") , emit: oddsresults, optional:true
+    tuple val(meta), path("${prefix}_EDM-1")        , emit: edmresults
     path "versions.yml"                             , emit: versions
 
     when:
