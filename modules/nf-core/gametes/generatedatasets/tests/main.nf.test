@@ -25,7 +25,11 @@ nextflow_process {
         then {
             assertAll(
                 { assert process.success },
-                { assert snapshot(process.out.edmresults.get(0).get(1)).exists() }
+                //{ assert snapshot(process.out.edmresults.get(0).get(1)).exists() }
+                //{ assert snapshot(file(process.out.edmresults.get(0).get(1)).list().sort()).match() }
+                //{ assert path(process.out.edmresults.get(0).get(1)).exists() }
+                //{ assert snapshot(process.out.edmresults) }
+                { assert snapshot(path("${process.out.edmresults[0][1]}/test_EDM-1_1.txt")).match() }
                 )
         }
     }

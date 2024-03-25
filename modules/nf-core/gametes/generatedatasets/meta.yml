@@ -32,14 +32,14 @@ output:
       pattern: "versions.yml"
 
   - edmresults:
-      type: directory
-      description: Folder containing the simulated datasets with EDM scores
-      pattern: "${prefix}_EDM-*"
+      type: file
+      description: File containing the simulated datasets using the EDM scores
+      pattern: "*_EDM-*_*.txt"
 
-  - oddsresults:
-      type: directory
-      description: Folder containing the simulated datasets with Odds Ratio scores
-      pattern: "${prefix}_OddsRatio-*"
+//  - oddsresults:
+//      type: directory
+//     description: Folder containing the simulated datasets with Odds Ratio scores
+//      pattern: "${prefix}_OddsRatio-*"
 
 authors:
   - "@msantorsola"

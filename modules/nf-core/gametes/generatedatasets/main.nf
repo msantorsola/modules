@@ -14,8 +14,8 @@ process GAMETES_GENERATEDATASETS {
 
 
     output:
-    tuple val(meta), path("${prefix}_EDM-1")        , emit: edmresults
-    path "versions.yml"                             , emit: versions
+    tuple val(meta), path("${prefix}")      , emit: edmresults
+    path "versions.yml"                     , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -32,7 +32,7 @@ process GAMETES_GENERATEDATASETS {
         $args \\
         --dataset \\
         "$args2 \\
-        -o ${prefix}"
+        -o $prefix"
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
