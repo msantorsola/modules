@@ -1,25 +1,12 @@
 {
     "dataset - model": {
         "content": [
-            {
-                "0": [
-                    
-                ],
-                "1": [
-                    
-                ],
-                "edmresults": [
-                    
-                ],
-                "versions": [
-                    
-                ]
-            }
+            "test_EDM-1_1.txt:md5,d653439e5008ac8352047548ceb7138f"
         ],
         "meta": {
             "nf-test": "0.8.4",
             "nextflow": "23.10.1"
         },
-        "timestamp": "2024-03-25T08:59:51.581035708"
+        "timestamp": "2024-03-25T09:42:11.75718707"
     }
 }

@@ -32,9 +32,9 @@ output:
       pattern: "versions.yml"
 
   - edmresults:
-      type: file
+      type: directory
       description: File containing the simulated datasets using the EDM scores
-      pattern: "*_EDM-*_*.txt"
+      pattern: "{prefix}_EDM-1"
 
 //  - oddsresults:
 //      type: directory

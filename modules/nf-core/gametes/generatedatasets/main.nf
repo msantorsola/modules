@@ -14,7 +14,7 @@ process GAMETES_GENERATEDATASETS {
 
 
     output:
-    tuple val(meta), path("${prefix}")      , emit: edmresults
+    tuple val(meta), path("${prefix}_EDM-1")      , emit: edmresults
     path "versions.yml"                     , emit: versions
 
     when:
@@ -23,7 +23,7 @@ process GAMETES_GENERATEDATASETS {
     script:
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
-    def prefix = task.ext.prefix ?: "$meta.id"
+    prefix = task.ext.prefix ?: "$meta.id"
     def VERSION = '2.1' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
 
     """
