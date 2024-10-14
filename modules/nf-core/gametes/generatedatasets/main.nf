@@ -4,8 +4,8 @@ process GAMETES_GENERATEDATASETS {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/gametes:2.1--py312h7e72e81_1':
-        'biocontainers/gametes:2.1--py312h7e72e81_1' }"
+        'https://depot.galaxyproject.org/singularity/gametes:2.1--py310h7cba7a3_0':
+        'biocontainers/gametes:2.1--py310h7cba7a3_0' }"
 
     input:
     tuple val(meta), path(model)
@@ -38,3 +38,4 @@ process GAMETES_GENERATEDATASETS {
     END_VERSIONS
     """
 }
+

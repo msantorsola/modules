@@ -1,11 +1,11 @@
----
 name: "gametes_generatedatasets"
-## TODO nf-core: Add a description of the module and list keywords
+
 description: Simulation of datasets featuring complex SNP-SNP interactions with gametes
 keywords:
   - epistasis
   - datasets
   - SNP
+
 tools:
   - "gametes":
       description: "Tool for the generation of complex single SNP models"
@@ -25,7 +25,6 @@ input:
       type: file
       description: Text file reporting model parameters
       pattern: "*.txt"
-
 
 output:
   - edmresults:

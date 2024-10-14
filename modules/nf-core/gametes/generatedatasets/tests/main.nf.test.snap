@@ -1,0 +1,93 @@
+{
+    "dataset - model": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        [
+                            [
+                                "test_EDM-1_01.txt:md5,194d70249f0303444f25a509c13cef75",
+                                "test_EDM-1_02.txt:md5,40cb028d219ab3cd3ab809d1f30f248a",
+                                "test_EDM-1_03.txt:md5,19f3f4104935235a1e7ba11399fbe5b9",
+                                "test_EDM-1_04.txt:md5,d5e613ca1fa835980bacabe6bd4f9899",
+                                "test_EDM-1_05.txt:md5,fb2d40a28e6cb90ac96f946768b7294d",
+                                "test_EDM-1_06.txt:md5,dc6654d3aa35001914fb7f72014e771d",
+                                "test_EDM-1_07.txt:md5,16e9659935ec2f1d5a238f9b30fab408",
+                                "test_EDM-1_08.txt:md5,a050ddaea9d1655f92badd4319db3ebf",
+                                "test_EDM-1_09.txt:md5,72ed4f31fed72dd866c8ff81f41cb7fd",
+                                "test_EDM-1_10.txt:md5,6a42dc578339de5f07d17387cdf0e4c7"
+                            ],
+                            [
+                                "test_EDM-2_01.txt:md5,fb5558165c66f9b5c778315c34d08d87",
+                                "test_EDM-2_02.txt:md5,38025f395c4226e26dd556c931a36106",
+                                "test_EDM-2_03.txt:md5,9a9794254e5f11716859389eb32b0575",
+                                "test_EDM-2_04.txt:md5,4b95c9152584db382a63fd076bc3118a",
+                                "test_EDM-2_05.txt:md5,977b26d9f79707223683327285f0a2d3",
+                                "test_EDM-2_06.txt:md5,aba7762854584e6d82bae0372d2ab02b",
+                                "test_EDM-2_07.txt:md5,d787a669884bd2f76563e10c5429d56d",
+                                "test_EDM-2_08.txt:md5,798fa61391cd8ea5b22489c849209ad9",
+                                "test_EDM-2_09.txt:md5,202a6af0dbae1735fe176bfcc8e4501f",
+                                "test_EDM-2_10.txt:md5,85eb444f8c06b39521905e0e87459de1"
+                            ]
+                        ]
+                    ]
+                ],
+                "1": [
+                    
+                ],
+                "2": [
+                    "versions.yml:md5,aff2d1a2d2716ad2a7fb22ac843e3c7c"
+                ],
+                "edmresults": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        [
+                            [
+                                "test_EDM-1_01.txt:md5,194d70249f0303444f25a509c13cef75",
+                                "test_EDM-1_02.txt:md5,40cb028d219ab3cd3ab809d1f30f248a",
+                                "test_EDM-1_03.txt:md5,19f3f4104935235a1e7ba11399fbe5b9",
+                                "test_EDM-1_04.txt:md5,d5e613ca1fa835980bacabe6bd4f9899",
+                                "test_EDM-1_05.txt:md5,fb2d40a28e6cb90ac96f946768b7294d",
+                                "test_EDM-1_06.txt:md5,dc6654d3aa35001914fb7f72014e771d",
+                                "test_EDM-1_07.txt:md5,16e9659935ec2f1d5a238f9b30fab408",
+                                "test_EDM-1_08.txt:md5,a050ddaea9d1655f92badd4319db3ebf",
+                                "test_EDM-1_09.txt:md5,72ed4f31fed72dd866c8ff81f41cb7fd",
+                                "test_EDM-1_10.txt:md5,6a42dc578339de5f07d17387cdf0e4c7"
+                            ],
+                            [
+                                "test_EDM-2_01.txt:md5,fb5558165c66f9b5c778315c34d08d87",
+                                "test_EDM-2_02.txt:md5,38025f395c4226e26dd556c931a36106",
+                                "test_EDM-2_03.txt:md5,9a9794254e5f11716859389eb32b0575",
+                                "test_EDM-2_04.txt:md5,4b95c9152584db382a63fd076bc3118a",
+                                "test_EDM-2_05.txt:md5,977b26d9f79707223683327285f0a2d3",
+                                "test_EDM-2_06.txt:md5,aba7762854584e6d82bae0372d2ab02b",
+                                "test_EDM-2_07.txt:md5,d787a669884bd2f76563e10c5429d56d",
+                                "test_EDM-2_08.txt:md5,798fa61391cd8ea5b22489c849209ad9",
+                                "test_EDM-2_09.txt:md5,202a6af0dbae1735fe176bfcc8e4501f",
+                                "test_EDM-2_10.txt:md5,85eb444f8c06b39521905e0e87459de1"
+                            ]
+                        ]
+                    ]
+                ],
+                "oddresults": [
+                    
+                ],
+                "versions": [
+                    "versions.yml:md5,aff2d1a2d2716ad2a7fb22ac843e3c7c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
+        },
+        "timestamp": "2024-10-14T15:05:25.984315986"
+    }
+}
