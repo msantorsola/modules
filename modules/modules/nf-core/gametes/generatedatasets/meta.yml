@@ -1,0 +1,49 @@
+---
+name: "gametes_generatedatasets"
+## TODO nf-core: Add a description of the module and list keywords
+description: Simulation of datasets featuring complex SNP-SNP interactions with gametes
+keywords:
+  - epistasis
+  - datasets
+  - SNP
+tools:
+  - "gametes":
+      description: "Tool for the generation of complex single SNP models"
+      homepage: "https://sourceforge.net/projects/gametes/"
+      documentation: "https://sourceforge.net/projects/gametes/files/GAMETES_v2.1_Users_Guide.pdf"
+      doi: "10.1186/1756-0381-5-16"
+      licence: ["GPL v2"]
+
+input:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'modelX', single_end:false ]`
+
+  - model:
+      type: file
+      description: Text file reporting model parameters
+      pattern: "*.txt"
+
+
+output:
+  - edmresults:
+      type: directory
+      description: File containing the simulated datasets using the EDM scores
+      pattern: "{prefix}_EDM-*"
+
+  - oddresults:
+      type: directory
+      description: File containing the simulated datasets using the EDM scores
+      pattern: "{prefix}_OddsRatio-*"
+
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: "versions.yml"
+
+authors:
+  - "@msantorsola"
+maintainers:
+  - "@msantorsola"
