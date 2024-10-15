@@ -19,7 +19,6 @@ nextflow_process {
 
                 input[0] = [
                     [ id:'test', single_end:false ], // meta map
-                    file("https://raw.githubusercontent.com/msantorsola/random_tests/main/h03_p06_a03_a02_a03_f03_p_q_d_t90000_Models.txt"),
                 ]
                 """
             }
