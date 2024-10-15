@@ -1,0 +1,61 @@
+{
+    "dataset - model": {
+        "content": [
+            {
+                "0": [
+                    
+                ],
+                "1": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test_OddsRatio_Scores.txt:md5,8a192deaf747746ab417a408b6300bf9"
+                    ]
+                ],
+                "2": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test_Models.txt:md5,790d622bc6f3be7875d30121c678064b"
+                    ]
+                ],
+                "3": [
+                    "versions.yml:md5,854b0e0f22a24ad4430d713e46803591"
+                ],
+                "edm_scores": [
+                    
+                ],
+                "models": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test_Models.txt:md5,790d622bc6f3be7875d30121c678064b"
+                    ]
+                ],
+                "oddsratio_scores": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test_OddsRatio_Scores.txt:md5,8a192deaf747746ab417a408b6300bf9"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,854b0e0f22a24ad4430d713e46803591"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
+        },
+        "timestamp": "2024-10-15T10:53:10.540968519"
+    }
+}

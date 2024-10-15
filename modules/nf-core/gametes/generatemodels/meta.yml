@@ -20,10 +20,6 @@ input:
         Groovy Map containing sample information
         e.g. `[ id:'model1']`
 
-  - heritability:
-      type: float
-      description: Heritability value ranging from 0 to 1
-
 output:
   - versions:
       type: file
@@ -33,19 +29,19 @@ output:
   - edm_scores:
       type: file
       description: File of EDM scores
-      pattern: "*.{EDM_Scores.txt}"
+      pattern: "*_EDM_Scores.txt"
       optional: true
 
   - oddsratio_scores:
       type: file
       description: File of Odds Ratio scores
-      pattern: "*.{_OddsRatio_Scores.txt}"
+      pattern: "*_OddsRatio_Scores.txt"
       optional: true
 
   - models:
       type: file
       description: File of the generated epistasis model
-      pattern: "*.{_Models.txt}"
+      pattern: "*_Models.txt"
 
 authors:
   - "@msantorsola"
