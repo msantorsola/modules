@@ -8,7 +8,7 @@ process GAMETES_GENERATEMODELS {
         'biocontainers/gametes:2.1--py310h7cba7a3_0' }"
 
     input:
-    tuple val(meta)
+    tuple val(meta), path(key_yml)
 
     output:
     tuple val(meta), path("*_EDM_Scores.txt"),       optional: true, emit: edm_scores
@@ -20,17 +20,47 @@ process GAMETES_GENERATEMODELS {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: ''
-    def args2 = task.ext.args2 ?: ''
+    //def args = task.ext.args ?: ''
+    //def args2 = task.ext.args2 ?: ''
     prefix = task.ext.prefix ?: "$meta.id"
     def VERSION = '2.1' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
 
     """
-    gametes \\
-        -M  "\\
-        -o $prefix \\
-        $args" \\
-        $args2
+    // dictionary to convert general parameters from csv into gametes-specific parameters, for creating model file
+
+    //key_yml="output_key_values.yml"
+    declare -A values
+
+    // split by :, remove spaces
+
+    IFS=":" read -r key value
+
+    // associate gametes parameters with the general parameters in the yam, and then the value
+    case \$key in
+        "--randomSeed") values["r"]="\$value" ;;
+        "--attributeAlleleFrequency") values["a"]="\$value" ;;
+        "--prevalence") values["p"]="\$value" ;;
+        "--heritability") values["h"]="\$value" ;;
+        "--useOddsRatio") values["d"]="\$value" ;;
+        "--quantile_counts") values["q"]="\$value" ;;
+        "--population_counts") values["pp"]="\$value" ;;
+        "--trycount") values["t"]="\$value" ;;
+        "--proportion") values["f"]="\$value" ;;
+    esac
+    done < $key_yml
+
+    gametes -M \
+    "--h \${values[h]} --p \${values[p]} --a \${values[a]} --f \${values[f]} --d \${values[d]} -o \$prefix\" \
+    -p \${values[pp]} -q \${values[q]} -t \${values[t]} -r \${values[r]}
+
+
+
+    //gametes -M "-h 0.3 -p 0.6 -a 0.3 -a 0.2 -a 0.3 -o OUTPUT -f 0.3 -d " -p 10 -q 2 -t 90000
+    //gametes \\
+    //    -M  "\\
+    //    -o $prefix \\
+    //    $args" \\
+    //    $args2
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

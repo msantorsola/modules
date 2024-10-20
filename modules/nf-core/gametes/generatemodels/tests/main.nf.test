@@ -8,7 +8,7 @@ nextflow_process {
     tag "modules_nfcore"
     tag "gametes"
     tag "gametes/generatemodels"
-    config "./nextflow.config"
+    //config "./nextflow.config"
 
     test("dataset - model") {
 
@@ -19,6 +19,7 @@ nextflow_process {
 
                 input[0] = [
                     [ id:'test', single_end:false ], // meta map
+                    file("https://raw.githubusercontent.com/msantorsola/random_tests/main/gametesM_dict.yml"),
                 ]
                 """
             }
