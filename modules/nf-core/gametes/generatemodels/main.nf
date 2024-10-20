@@ -54,14 +54,6 @@ process GAMETES_GENERATEMODELS {
     -p \${values[pp]} -q \${values[q]} -t \${values[t]} -r \${values[r]}
 
 
-
-    //gametes -M "-h 0.3 -p 0.6 -a 0.3 -a 0.2 -a 0.3 -o OUTPUT -f 0.3 -d " -p 10 -q 2 -t 90000
-    //gametes \\
-    //    -M  "\\
-    //    -o $prefix \\
-    //    $args" \\
-    //    $args2
-
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         gametes: $VERSION
