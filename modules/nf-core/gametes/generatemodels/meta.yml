@@ -22,7 +22,7 @@ input:
 
   - key_yml:
       type: file
-      description: File containing gametes parameter dictionary
+      description: File containing gametes parameters and values
       pattern: "*.yml"
 
 output:

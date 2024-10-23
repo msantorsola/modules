@@ -25,33 +25,41 @@ process GAMETES_GENERATEMODELS {
     prefix = task.ext.prefix ?: "$meta.id"
     def VERSION = '2.1' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
 
+
     """
-    // dictionary to convert general parameters from csv into gametes-specific parameters, for creating model file
+    declare -A gametespar=(
+        [r]="--randomSeed"
+        [a]="--attributeAlleleFrequency"
+        [p]="--prevalence"
+        [h]="--heritability"
+        [d]="--useOddsRatio"
+        [q]="--quantile_counts"
+        [z]="--population_counts"
+        [t]="--trycount"
+        [f]="--proportion"
+        )
 
-    //key_yml="output_key_values.yml"
-    declare -A values
 
-    // split by :, remove spaces
+    declare -A args=()
 
-    IFS=":" read -r key value
+    while IFS=":" read -r params value; do
+        params=\$(echo "\$key" | tr -d '"' | xargs)
+        value=\$(echo "\$value" | tr -d '"' | xargs)
+        case "\$params" in
+            "--randomSeed") args["-r"]="\$value" ;;
+            "--attributeAlleleFrequency") args["-a"]="\$value" ;;
+            "--prevalence") args["-p"]="\$value" ;;
+            "--heritability") args["-h"]="\$value" ;;
+            "--useOddsRatio") args["-d"]="\$value" ;;
+            "--quantile_counts") args["-q"]="\$value" ;;
+            "--population_counts") args["-z"]="\$value" ;;
+            "--trycount") args["-t"]="\$value" ;;
+            "--proportion") args["-f"]="\$value" ;;
+        esac
+    done <  $key_yml
 
-    // associate gametes parameters with the general parameters in the yam, and then the value
-    case \$key in
-        "--randomSeed") values["r"]="\$value" ;;
-        "--attributeAlleleFrequency") values["a"]="\$value" ;;
-        "--prevalence") values["p"]="\$value" ;;
-        "--heritability") values["h"]="\$value" ;;
-        "--useOddsRatio") values["d"]="\$value" ;;
-        "--quantile_counts") values["q"]="\$value" ;;
-        "--population_counts") values["pp"]="\$value" ;;
-        "--trycount") values["t"]="\$value" ;;
-        "--proportion") values["f"]="\$value" ;;
-    esac
-    done < $key_yml
 
-    gametes -M \
-    "--h \${values[h]} --p \${values[p]} --a \${values[a]} --f \${values[f]} --d \${values[d]} -o \$prefix\" \
-    -p \${values[pp]} -q \${values[q]} -t \${values[t]} -r \${values[r]}
+    eval gametes -M "-h "\${args[h]:-""}" -p "\${args[p]:-""}" -a "\${args[a]:-""}" -f "\${args[f]:-""}" -d "\${args[d]:-""}" -o $prefix" --population_counts "\${args["z"]:-""}" -q "\${args[q]:-""}" -t "\${args[t]:-""}" -r "\${args[r]:-""}"
 
 
     cat <<-END_VERSIONS > versions.yml
